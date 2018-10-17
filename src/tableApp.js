@@ -5,7 +5,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-
+import ArrowDropDown from '@material-ui/icons/ArrowDropDown'
+import ArrowDropUp from '@material-ui/icons/ArrowDropUp'
 class TableApp extends Component {
   constructor() {
     super();
@@ -118,13 +119,13 @@ render(){
     <div>
     <h1 style = {{marginLeft: '5%'}}>Transactions</h1>
 
-    <Paper style = {{width: '30%',marginLeft: '5%'}}>
+    <Paper style = {{width: '50%',marginLeft: '5%'}}>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell onClick = {this.headerClick.bind(this,'name')}>Name</TableCell>
-            <TableCell onClick = {this.headerClick.bind(this,'amount')}>Amount</TableCell>
-            <TableCell onClick = {this.headerClick.bind(this,'date')}>Date</TableCell>
+            <TableCell onClick = {this.headerClick.bind(this,'name')}>Name{this.state.name ? <ArrowDropUp/>: <ArrowDropDown/>}</TableCell>
+            <TableCell onClick = {this.headerClick.bind(this,'amount')}>Amount {this.state.amount ? <ArrowDropUp/>: <ArrowDropDown/>}></TableCell>
+            <TableCell onClick = {this.headerClick.bind(this,'date')}>Date {this.state.date ? <ArrowDropUp/>: <ArrowDropDown/>}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
